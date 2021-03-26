@@ -3,7 +3,7 @@ def is_palindrome(string):
     return string == string[::-1]
 
 
-def longest_palindrome(string):
+def get_longest_palindrome(string):
     combo = _subsets(string)
     longest = ''
     for word in combo:
@@ -12,7 +12,7 @@ def longest_palindrome(string):
     return longest
 
 
-def minimum_palindrome_cut(string):
+def get_minimum_palindrome_cut(string):
     current = string
     combo = _subsets(string)
     combo = sorted(combo, key=lambda x: len(x))[::-1]
@@ -36,5 +36,5 @@ if __name__ == '__main__':
     assert (is_palindrome('ab') is False)
     assert (is_palindrome('abba') is True)
     assert (is_palindrome('madamimeve') is False)
-    assert (longest_palindrome('abaxyzzyxf') == 'xyzzyx')
-    assert (minimum_palindrome_cut('noonabbad') == 2)
+    assert (get_longest_palindrome('abaxyzzyxf') == 'xyzzyx')
+    assert (get_minimum_palindrome_cut('noonabbad') == 2)

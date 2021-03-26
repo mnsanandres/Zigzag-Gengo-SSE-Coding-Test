@@ -18,13 +18,13 @@ class MyTestCase(unittest.TestCase):
         self.assertEqual(palindrome.is_palindrome('madamimeve'), False)
 
     def test_longest_palindrome(self):
-        self.assertEqual(palindrome.longest_palindrome('abaxyzzyxf'), 'xyzzyx')
-        self.assertEqual(palindrome.longest_palindrome('madam referred a civic racecar model'), ' racecar ')
+        self.assertEqual(palindrome.get_longest_palindrome('abaxyzzyxf'), 'xyzzyx')
+        self.assertEqual(palindrome.get_longest_palindrome('madam referred a civic racecar model'), ' racecar ')
 
     def test_minimum_palindrome_cut(self):
-        self.assertEqual(palindrome.minimum_palindrome_cut('noonabbad'), 2)
-        self.assertEqual(palindrome.minimum_palindrome_cut('racecar'), 0)
-        self.assertEqual(palindrome.minimum_palindrome_cut('11racecarevents'), 5)
+        self.assertEqual(palindrome.get_minimum_palindrome_cut('noonabbad'), 2)
+        self.assertEqual(palindrome.get_minimum_palindrome_cut('racecar'), 0)
+        self.assertEqual(palindrome.get_minimum_palindrome_cut('11racecarevents'), 5)
 
 
 if __name__ == '__main__':
