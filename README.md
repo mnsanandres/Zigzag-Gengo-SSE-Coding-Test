@@ -1,1 +1,71 @@
-# Zigzag-Gengo-SSE-Coding-Test
+# Table of Contents
+
+* [palindrome](#palindrome)
+  * [is\_palindrome](#palindrome.is_palindrome)
+  * [get\_longest\_palindrome](#palindrome.get_longest_palindrome)
+  * [get\_minimum\_palindrome\_cut](#palindrome.get_minimum_palindrome_cut)
+
+<a name="palindrome"></a>
+# palindrome
+
+Set of functions for palindrome checking
+
+<a name="palindrome.is_palindrome"></a>
+#### is\_palindrome
+
+```python
+is_palindrome(string)
+```
+
+Determines whether a string is a palindrome. An assertion is first made to verify if the input is valid.
+The string is checked against the reverse of itself and if both strings are equal, the input string is deemed
+a palindrome.
+
+**Arguments**:
+
+- `string`: The string to check
+
+**Returns**:
+
+True if the string is a palindrome. Otherwise, False
+
+<a name="palindrome.get_longest_palindrome"></a>
+#### get\_longest\_palindrome
+
+```python
+get_longest_palindrome(string)
+```
+
+Returns the longest substring that is a palindrome. All substrings of the main string is first generated.
+We iterate over these substrings and check if it is longer than the current longest substring and
+if it is a palindrome. If both conditions are satisfied, the substring replaces the current longest substring.
+
+**Arguments**:
+
+- `string`: The string to check
+
+**Returns**:
+
+The longest substring that is a palindrome
+
+<a name="palindrome.get_minimum_palindrome_cut"></a>
+#### get\_minimum\_palindrome\_cut
+
+```python
+get_minimum_palindrome_cut(string)
+```
+
+Returns the minimum number of cuts needed such that all substrings will be a palindrome.
+All substrings are generated and are sorted by length in descending order to ensure that the maximum length
+palindrome substrings are first checked. We iterate over these substrings and check if is a palindrome and is found
+in the current parent string. If both conditions are satisfied, a counter for substring is increment and we remove
+the substring from the parent string. The minimum cut will be one less than the number of substrings found.
+
+**Arguments**:
+
+- `string`: The string to check
+
+**Returns**:
+
+The number of cuts needed such that all substrings will be a palindrome
+
