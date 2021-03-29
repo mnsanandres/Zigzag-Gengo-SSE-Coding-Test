@@ -25,6 +25,8 @@ class MyTestCase(unittest.TestCase):
         self.assertEqual(palindrome.get_minimum_palindrome_cut('noonabbad'), 2)
         self.assertEqual(palindrome.get_minimum_palindrome_cut('racecar'), 0)
         self.assertEqual(palindrome.get_minimum_palindrome_cut('11racecarevents'), 5)
+        self.assertEqual(palindrome.get_minimum_palindrome_cut('ddcbdd'), 3)
+        self.assertEqual(palindrome.get_minimum_palindrome_cut('axaaabad'), 3)
 
 
 if __name__ == '__main__':
