@@ -116,6 +116,9 @@ def _main(argv):
     if input_string and ops:
         for op in ops:
             print(f'{op.__name__.replace("is_", "").replace("get_", "").replace("_", " ")}: {op(input_string)}')
+    else:
+        print('palindrome.py -i <input string> [-v] [-l] [-c]')
+        sys.exit(2)
 
 
 if __name__ == '__main__':
