@@ -1,6 +1,19 @@
 """
 Set of functions for palindrome checking
+
+Usage:
+```
+    palindrome.py -i <input string> [-v] [-l] [-c]
+    -h, --help      show this help message and exit
+    -i, --input     input string
+    -v, --valid     check if valid palindrome
+    -l, --longest   get longest palindrome substring
+    -c, --cut       get the minimum number of palindrome substring cuts
+```
 """
+import getopt
+import sys
+
 
 def is_palindrome(string):
     """
@@ -61,6 +74,37 @@ def _subsets(string):
     return [string[i: j] for i in range(len(string)) for j in range(i + 1, len(string) + 1)]
 
 
+def _main(argv):
+    help_text = '''palindrome.py -i <input string> [-v] [-l] [-c]
+    -h, --help      show this help message and exit
+    -i, --input     input string
+    -v, --valid     check if valid palindrome
+    -l, --longest   get longest palindrome substring
+    -c, --cut       get the minimum number of palindrome substring cuts'''
+    try:
+        opts, args = getopt.getopt(argv, "hi:vlc", ["input=", "valid", "longest", "cut"])
+    except getopt.GetoptError:
+        print('palindrome.py -i <input string> [-v] [-l] [-c]')
+        sys.exit(2)
+    input_string = ''
+    ops = []
+    for opt, arg in opts:
+        if opt == '-h':
+            print(help_text)
+            sys.exit()
+        elif opt in ("-i", "--input"):
+            input_string = arg
+        elif opt in ("-v", "--valid"):
+            ops.append(is_palindrome)
+        elif opt in ("-l", "--longest"):
+            ops.append(get_longest_palindrome)
+        elif opt in ("-c", "--cut"):
+            ops.append(get_minimum_palindrome_cut)
+    if input_string and ops:
+        for op in ops:
+            print(f'{op.__name__.replace("is_", "").replace("get_", "").replace("_", " ")}: {op(input_string)}')
+
+
 if __name__ == '__main__':
     assert (is_palindrome('a') is True)
     assert (is_palindrome('ab') is False)
@@ -68,3 +112,4 @@ if __name__ == '__main__':
     assert (is_palindrome('madamimeve') is False)
     assert (get_longest_palindrome('abaxyzzyxf') == 'xyzzyx')
     assert (get_minimum_palindrome_cut('noonabbad') == 2)
+    _main(sys.argv[1:])

@@ -10,6 +10,16 @@
 
 Set of functions for palindrome checking
 
+Usage:
+```
+    palindrome.py -i <input string> [-v] [-l] [-c]
+    -h, --help      show this help message and exit
+    -i, --input     input string
+    -v, --valid     check if valid palindrome
+    -l, --longest   get longest palindrome substring
+    -c, --cut       get the minimum number of palindrome substring cuts
+```
+
 <a name="palindrome.is_palindrome"></a>
 #### is\_palindrome
 
